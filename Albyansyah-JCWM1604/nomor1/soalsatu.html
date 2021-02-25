@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Masukan kata : </h1>
+    
+    <div>
+        <input type="text" placeholder="masukan huruf" id="input">
+    </div>
+    <br>
+    <button onclick="hitungVokal()">
+    Hitung Vokal
+    </button>
+    <button onclick="hurufVokal()">
+    Huruf Vokal
+    </button>
+    <button onclick="tanpaVokal()">
+    Tanpa Vokal
+    </button>
+
+<tbody>
+    <h3 id="hasil"></h3>
+</tbody>
+
+<script>
+
+function hitungVokal(){
+    var katamasuk = document.getElementById('input').value
+    var a, i, u, e, o;
+    var hasil = 0
+    katamasuk = katamasuk.toLowerCase().toString().split('')
+    if (katamasuk.includes('a')) {
+        a = 1
+} else {
+        a = 0
+        }
+
+    if (katamasuk.includes('i')) {
+        i = 1
+} else {
+        i = 0
+        }
+
+    if (katamasuk.includes('u')) {
+        u = 1
+} else {
+        u = 0
+        }
+
+    if (katamasuk.includes('e')) {
+        e = 1
+} else {
+        e = 0
+        }
+
+    if (katamasuk.includes('o')) {
+        o = 1
+} else {
+        o = 0
+        }
+
+var Hitung = a+i+u+e+o
+hasil = `a:${a}, i:${i}, u:${u}, e:${e}, o:${o}`
+document.getElementById('hasil').innerHTML = hasil
+    }
+
+    function hurufVokal() {
+        var katamasuk = document.getElementById('input').value
+        var huruf = katamasuk.toLowerCase().toString().split('')
+        var a = `${huruf.includes('a') ? huruf.filter(val => val == 'a')[0]:''}`
+        var i = `${huruf.includes('i') ? huruf.filter(val => val == 'i')[0]:''}`
+        var u = `${huruf.includes('u') ? huruf.filter(val => val == 'u')[0]:''}`
+        var e = `${huruf.includes('e') ? huruf.filter(val => val == 'e')[0]:''}`
+        var o = `${huruf.includes('o') ? huruf.filter(val => val == 'o')[0]:''}`
+
+        var hasil = `Huruf Vokal = ${a}${i}${u}${e}${o}`
+        console.log(hasil)
+        document.getElementById('hasil').innerHTML = hasil
+
+    }
+
+    function tanpaVokal() {
+        var katamasuk = document.getElementById('input').value
+        var hasil = `Tanpa vokal: ${katamasuk.replace(/[aiueo]/ig, (m,i) =>i='')}`
+        document.getElementById('hasil').innerHTML = hasil
+
+        
+    }
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
